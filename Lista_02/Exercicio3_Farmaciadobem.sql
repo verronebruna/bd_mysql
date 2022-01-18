@@ -1,28 +1,21 @@
-/*Crie um banco de dados para um serviço de pizzaria de uma empresa, o nome do banco deverá ter o seguinte nome db_pizzaria_legal,
-onde o sistema trabalhará com as informações dos produtos desta empresa.*/
+/*Crie um banco de dados para um serviço de farmácia de uma empresa, o nome do banco deverá ter o seguinte nome db_farmacia_do_bem, 
+onde o sistema trabalhará com as informações dos produtos desta empresa. O sistema trabalhará com 2 tabelas tb_produto e tb_categoria.*/
 
-create database db_pizzaria_legal;
-use db_pizzaria_legal;
+create database db_farmacia_do_bem;
+use db_farmacia_do_bem;
 
 /*Crie uma tabela de categorias utilizando a habilidade de abstração e determine 3 atributos 
-relevantes do tb_categoria para se trabalhar com o serviço dessa pizzaria. Popule esta tabela Categoria com até 5 dados.*/
+relevantes do tb_categoria para se trabalhar com o serviço desta farmacia. Popule esta tabela Categoria com até 5 dados.*/
 create table tb_categoria(
 id bigint auto_increment,
-massa varchar(255) not null,
-borda varchar(255) not null,
-sabor varchar(255) not null,
+descricao varchar(255) not null,
 primary key (id)
 );
 
 INSERT INTO tb_categoria (massa, borda, sabor) VALUES ("Fina", "Catupiry","Salgada");
-INSERT INTO tb_categoria (massa, borda, sabor) VALUES ("Tradicional", "Chocolate","Doce");
-INSERT INTO tb_categoria (massa, borda, sabor) VALUES ("Massa Pan", "Sem recheio","Doce");
-INSERT INTO tb_categoria (massa, borda, sabor) VALUES ("Fina", "Cheddar","Salgada");
-INSERT INTO tb_categoria (massa, borda, sabor) VALUES ("Massa Pan", "Chocolate","Salgada");
 
-/*Crie uma tabela de tb_pizza e utilizando a habilidade de abstração e determine 5 atributos
-relevantes dos tb_produto para se trabalhar com o serviço dessa pizzaria(não esqueça de criar a 
-foreign key de tb_categoria nesta tabela). Popule esta tabela pizza com até 8 dados.*/
+/*Crie uma tabela de tb_produto e utilizando a habilidade de abstração e determine 5 atributos relevantes dos tb_produto para se 
+trabalhar com o serviço deste farmacia(não esqueça de criar a foreign key de tb_categoria nesta tabela). Popule esta tabela pizza com até 8 dados.*/
 create table tb_pizza( 
 id bigint auto_increment,
 recheio varchar(255) not null,
@@ -34,14 +27,14 @@ primary key(id),
 foreign key(categoria_id) references tb_categoria (id) 
 );
 
-INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Vegetariana", 45.50, "Grande", 3, 1);
+INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Vegetariana", 45.50, "Grande", 1, 1);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Sensação", 35.50, "Broto", 1, 2);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Palmito", 40.50, "Média", 1, 1);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Chocolate", 30.00, "Grande", 1, 2);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Negresco", 60.00, "Média", 2, 2);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Portuguesa", 55.00, "Grande", 1, 1);
 INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Escarola", 40.50, "Broto", 1, 1);
-INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Romeu e Julieta", 50.50, "Grande", 5, 2);
+INSERT INTO tb_pizza (recheio, valor, tamanho, quantidade, categoria_id) VALUES ("Romeu e Julieta", 50.50, "Grande", 1, 1);
 
 select * from tb_pizza;
 
